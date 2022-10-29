@@ -1,0 +1,24 @@
+.option {
+    -fx-background-color: empty;
+}
+
+.option:hover {
+    -fx-background-color: #6A5ACD;
+}
+
+.option:pressed {
+    -fx-background-color: #4682B4;
+}
+
+.menu-form {
+    -fx-background-color: linear-gradient(to bottom right, #2F3F89, #9231B5);
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
+.stage-view {
+    -fx-background-color: linear-gradient(to bottom right,  dimgrey, whitesmoke);
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="stage-view" stylesheets="@css/function.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="7.0" layoutY="7.0" prefHeight="45.0" prefWidth="887.0" styleClass="similar-field">
+         <children>
+            <Button layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#onBackButtonClick" prefHeight="31.0" prefWidth="60.0" styleClass="black-button" text="Back">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="290.0" layoutY="12.0" text="Adding employee information stage">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="7.0" layoutY="57.0" prefHeight="537.0" prefWidth="887.0" styleClass="similar-field">
+         <children>
+            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="100.0" text="ID:">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="121.0" layoutY="15.0" prefHeight="30.0" prefWidth="150.0" promptText="Enter the ID" styleClass="similar-field">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <Button layoutX="278.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onBackButtonClick" prefHeight="30.0" prefWidth="143.0" styleClass="black-button" text="Suggesting ID">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="53.0" prefHeight="30.0" prefWidth="100.0" text="NAME:">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="121.0" layoutY="54.0" prefHeight="30.0" prefWidth="300.0" promptText="Enter the NAME" styleClass="similar-field">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="91.0" prefHeight="30.0" prefWidth="100.0" text="AGE:">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="121.0" layoutY="92.0" prefHeight="30.0" prefWidth="150.0" promptText="Enter the AGE" styleClass="similar-field">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="129.0" prefHeight="30.0" prefWidth="100.0" text="ADDRESS:">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="121.0" layoutY="130.0" prefHeight="30.0" prefWidth="300.0" promptText="Enter the ADDRESS" styleClass="similar-field">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <ComboBox layoutX="121.0" layoutY="168.0" prefHeight="30.0" prefWidth="175.0" promptText="JOB" styleClass="black-button" />
+            <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="167.0" prefHeight="30.0" prefWidth="100.0" text="JOB:">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="400.0" layoutY="168.0" prefHeight="30.0" prefWidth="175.0" promptText="LEVEL" styleClass="black-button" />
+            <Label alignment="CENTER_RIGHT" layoutX="293.0" layoutY="167.0" prefHeight="30.0" prefWidth="100.0" text="LEVEL:">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="372.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#onBackButtonClick" prefHeight="30.0" prefWidth="143.0" styleClass="black-button" text="Confirm">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="428.0" layoutY="14.0" prefHeight="30.0" prefWidth="143.0" text="Must be a number!" textFill="RED">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="278.0" layoutY="92.0" prefHeight="30.0" prefWidth="143.0" text="Must be a number!" textFill="RED">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
+            <Pane layoutX="585.0" layoutY="8.0" prefHeight="190.0" prefWidth="294.0" styleClass="similar-field" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

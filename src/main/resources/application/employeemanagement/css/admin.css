@@ -1,0 +1,54 @@
+.border-pane {
+    -fx-border-color: Black;
+    -fx-border-width: 2;
+}
+
+.background-pane {
+    -fx-background-color: linear-gradient(to bottom right,  dimgrey, whitesmoke);
+}
+
+.admin-panel {
+    -fx-background-color: linear-gradient(to bottom right, #2F3F89, #9231B5);
+}
+
+.view-pane {
+    -fx-background-color: beige;
+}
+
+.function-pane {
+    -fx-background-color: white;
+}
+
+.function-press {
+    -fx-background-color: empty;
+}
+
+.function-press:hover {
+    -fx-background-color: #6A5ACD;
+}
+
+.function-press:pressed {
+    -fx-background-color: #4682B4;
+}
+
+.similar-field {
+    -fx-background-color: beige;
+    -fx-border-color: black;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+}
+
+.button {
+    -fx-background-color: empty;
+    -fx-border-color: black;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+}
+.button:hover {
+    -fx-background-color: #87CEFA ;
+}
+.button:pressed {
+    -fx-background-color: #FFD700;
+}
