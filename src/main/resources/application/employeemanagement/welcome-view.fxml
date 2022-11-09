@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" styleClass="stage-view" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.employeemanagement.Control">
+    <VBox prefHeight="400.0" prefWidth="200.0" styleClass="menu-form" stylesheets="@css/style.css">
+      <Pane prefHeight="63.0" prefWidth="196.0">
+         <children>
+                <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="66.0" layoutY="5.0" styleClass="icon">
+                    <Image url="@photo/welcome-view/acus_company.png" />
+                </ImageView>
+         </children>
+      </Pane>
+        <Label alignment="CENTER" prefHeight="40.0" prefWidth="196.0" text="Acus Company" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="20.0" />
+            </font>
+        </Label>
+        <Pane prefHeight="2.0" prefWidth="169.0" style="-fx-background-color: black;" />
+        <Pane prefHeight="10.0" prefWidth="200.0" />
+        <HBox onMouseClicked="#onSignInClick" prefHeight="40.0" prefWidth="196.0" styleClass="option">
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+                <HBox.margin>
+                    <Insets left="10.0" right="10.0" top="7.5" />
+                </HBox.margin>
+                <Image url="@photo/welcome-view/signin.png" />
+            </ImageView>
+            <Label prefHeight="40.0" prefWidth="174.0" text="Sign-in" textFill="WHITE">
+                <font>
+                    <Font name="Arial Bold" size="15.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox onMouseClicked="#onSignUpClick" prefHeight="40.0" prefWidth="200.0" styleClass="option">
+            <ImageView fitHeight="20.0" fitWidth="20.0">
+                <HBox.margin>
+                    <Insets left="15.0" right="10.0" top="7.5" />
+                </HBox.margin>
+                <Image url="@photo/welcome-view/signup.png" />
+            </ImageView>
+            <Label prefHeight="40.0" prefWidth="174.0" text="Sign-up" textFill="WHITE">
+                <font>
+                    <Font name="Arial Bold" size="15.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox onMouseClicked="#onMoreInfoClick" prefHeight="40.0" prefWidth="196.0" styleClass="option">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+                <HBox.margin>
+                    <Insets left="13.0" top="6.0" />
+                </HBox.margin>
+                <Image url="@photo/welcome-view/information.png" />
+            </ImageView>
+            <Label prefHeight="40.0" prefWidth="140.0" text="Information" textFill="WHITE">
+                <font>
+                    <Font name="Arial Bold" size="15.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="5.5" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+        <HBox onMouseClicked="#onExitClick" prefHeight="40.0" prefWidth="196.0" styleClass="option">
+            <ImageView fitHeight="25.0" fitWidth="25.0">
+                <HBox.margin>
+                    <Insets left="12.5" top="7.0" />
+                </HBox.margin>
+                <Image url="@photo/welcome-view/exit.png" />
+            </ImageView>
+            <Label prefHeight="40.0" prefWidth="174.0" text="Exit" textFill="WHITE">
+                <font>
+                    <Font name="Arial Bold" size="15.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="5.5" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+        <Pane prefHeight="10.0" prefWidth="200.0" />
+        <Pane prefHeight="2.0" prefWidth="169.0" style="-fx-background-color: black;" />
+        <Pane prefHeight="105.0" prefWidth="196.0">
+            <VBox layoutY="58.0" prefHeight="40.0" prefWidth="196.0">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="Project by:" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Hyperlink alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#authorProfile" prefHeight="27.0" prefWidth="197.0" text="Pham Gia Phuc - Acus">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Hyperlink>
+            </VBox>
+        </Pane>
+    </VBox>
+    <Label fx:id="choose_option" layoutX="334.0" layoutY="190.0" text="Please choose an option to continue" underline="true">
+        <font>
+            <Font name="Arial Bold" size="15.0" />
+        </font>
+    </Label>
+    <!-- SIGN-IN STAGE -->
+    <Pane fx:id="signIn_pane" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css" visible="false">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+        <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </opaqueInsets>
+        <VBox layoutX="6.0" layoutY="6.0" prefHeight="376.0" prefWidth="477.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <Pane prefHeight="99.0" prefWidth="477.0">
+                <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="201.0" layoutY="24.0">
+                    <Image url="@photo/welcome-view/user.png" />
+                </ImageView>
+                <Button mnemonicParsing="false" onMouseClicked="#onBackButtonClick" prefHeight="31.0" prefWidth="60.0" text="Back">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Button>
+            </Pane>
+            <Label alignment="CENTER" minHeight="40.0" prefHeight="40.0" prefWidth="485.0" text="LOGIN" textAlignment="CENTER" underline="true">
+                <font>
+                    <Font name="Arial Bold" size="18.0" />
+                </font>
+            </Label>
+            <Pane prefHeight="40.0">
+                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="140.0" text="Account:">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="account" layoutX="147.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your account" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </TextField>
+            </Pane>
+            <Pane prefHeight="40.0">
+                <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="140.0" text="Password:">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="password" layoutX="148.0" layoutY="5.0" maxWidth="240.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your password" style="-fx-background-color: empty; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2; -fx-background-radius: 20;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </PasswordField>
+                <TextField fx:id="pass_0" layoutX="148.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </TextField>
+            </Pane>
+            <Pane prefHeight="27.0" prefWidth="477.0">
+                <Label layoutX="163.0" prefHeight="27.0" prefWidth="150.0" text="Reveal the password ?">
+                    <font>
+                        <Font name="Arial Bold" size="12.0" />
+                    </font>
+                </Label>
+                <CheckBox fx:id="revealPass_signIn" layoutX="298.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#revealPassword_signIn" />
+            </Pane>
+            <Pane prefHeight="40.0" prefWidth="200.0">
+                <Button layoutX="164.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#signingIn" prefHeight="30.0" prefWidth="150.0" text="Sign in">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Button>
+            </Pane>
+            <Pane prefHeight="10.0" prefWidth="200.0">
+                <padding>
+                    <Insets left="50.0" right="50.0" />
+                </padding>
+            </Pane>
+            <Pane prefHeight="2.0" prefWidth="200.0" style="-fx-background-color: black;">
+                <VBox.margin>
+                    <Insets left="120.0" right="120.0" />
+                </VBox.margin>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="200.0">
+                <padding>
+                    <Insets left="50.0" right="50.0" />
+                </padding>
+                <Label alignment="CENTER_RIGHT" layoutX="96.0" layoutY="1.0" prefHeight="25.0" prefWidth="196.0" text="Don't have an account ?">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                </Label>
+                <Label alignment="CENTER_RIGHT" layoutX="96.0" layoutY="25.0" prefHeight="25.0" prefWidth="196.0" text="Forgot your password ?">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                </Label>
+                <Hyperlink layoutX="297.0" layoutY="1.0" onMouseClicked="#onLinkSignUpClick" prefHeight="25.0" text="Sign-up">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                </Hyperlink>
+                <Hyperlink layoutX="297.0" layoutY="25.0" onMouseClicked="#onLinkForgetPasswordClick" prefHeight="25.0" text="Click here">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                </Hyperlink>
+            </Pane>
+        </VBox>
+    </Pane>
+    <!-- SIGN-UP STAGE -->
+    <Pane fx:id="signUp_pane" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+        <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </opaqueInsets>
+        <VBox layoutX="6.0" layoutY="6.0" prefHeight="376.0" prefWidth="477.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <Pane prefHeight="60.0" prefWidth="477.0">
+                <Button mnemonicParsing="false" onMouseClicked="#onBackButtonClick" prefHeight="31.0" prefWidth="60.0" text="Back">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="79.0" layoutY="8.0">
+                    <Image url="@photo/welcome-view/signup.png" />
+                </ImageView>
+                <Label alignment="CENTER" layoutX="129.0" layoutY="13.0" prefHeight="40.0" prefWidth="269.0" text="REGISTERING NEW ACCOUNT" underline="true">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+            </Pane>
+            <Pane prefHeight="40.0">
+                <Label alignment="CENTER_RIGHT" layoutX="14.0" prefHeight="40.0" prefWidth="140.0" text="New account:">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+            <TextField fx:id="user_account" layoutX="161.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your account" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            </Pane>
+            <Pane prefHeight="40.0">
+                <Label alignment="CENTER_RIGHT" layoutX="13.0" prefHeight="40.0" prefWidth="140.0" text="New password:">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="user_password" layoutX="161.0" layoutY="5.0" maxWidth="240.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your password" style="-fx-background-color: empty; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2; -fx-background-radius: 20;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </PasswordField>
+                <TextField fx:id="pass_1" layoutX="161.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </TextField>
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="416.0" layoutY="-10.0">
+               <image>
+                  <Image url="@photo/welcome-view/signup.png" />
+               </image>
+            </ImageView>
+            </Pane>
+            <Pane prefHeight="40.0">
+                <Label alignment="CENTER_RIGHT" layoutX="3.0" layoutY="2.0" prefHeight="40.0" prefWidth="150.0" text="Re-enter password:">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Label>
+                <PasswordField fx:id="reEnter_password" layoutX="161.0" layoutY="6.0" maxWidth="240.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter again your password" style="-fx-background-color: empty; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2; -fx-background-radius: 20;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </PasswordField>
+                <TextField fx:id="pass_2" layoutX="161.0" layoutY="6.0" prefHeight="30.0" prefWidth="240.0" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                    <font>
+                        <Font name="Arial" size="15.0" />
+                    </font>
+                </TextField>
+            <Button layoutX="406.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#onAvatarButtonClick" text="Avatar">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+            </Pane>
+            <Pane prefHeight="27.0" prefWidth="477.0">
+                <Label layoutX="163.0" layoutY="1.0" prefHeight="27.0" prefWidth="150.0" text="Reveal the password ?">
+                    <font>
+                        <Font name="Arial Bold" size="12.0" />
+                    </font>
+                </Label>
+                <CheckBox fx:id="revealPass_signUp" layoutX="298.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#revealPassword_signUp" />
+            </Pane>
+         <Pane prefHeight="40.0">
+            <children>
+               <Label alignment="CENTER_RIGHT" layoutX="13.0" prefHeight="40.0" prefWidth="140.0" text="Nick name:">
+                  <font>
+                     <Font name="Arial Bold" size="15.0" />
+                  </font>
+               </Label>
+               <TextField fx:id="user_nickname" layoutX="161.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your nickname" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                  <font>
+                     <Font name="Arial" size="15.0" />
+                  </font>
+               </TextField>
+            </children>
+         </Pane>
+            <Pane prefHeight="40.0" prefWidth="200.0">
+                <Button layoutX="164.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#signingUpUserAccount" prefHeight="30.0" prefWidth="150.0" text="Sign up">
+                    <font>
+                        <Font name="Arial Bold" size="15.0" />
+                    </font>
+                </Button>
+            </Pane>
+            <Pane prefHeight="10.0" prefWidth="200.0">
+                <padding>
+                    <Insets left="50.0" right="50.0" />
+                </padding>
+            </Pane>
+            <Pane prefHeight="2.0" prefWidth="200.0" style="-fx-background-color: black;">
+                <VBox.margin>
+                    <Insets left="50.0" right="50.0" />
+                </VBox.margin>
+            </Pane>
+            <Pane prefHeight="70.0" prefWidth="477.0">
+            <children>
+                   <Label layoutX="14.0" layoutY="-1.0" prefHeight="40.0" prefWidth="450.0" text="REQUIREMENTS need keeping in mind:">
+                       <font>
+                           <Font name="Arial Bold" size="15.0" />
+                       </font>
+                   </Label>
+                   <Label layoutX="14.0" layoutY="24.0" prefHeight="40.0" prefWidth="458.0" text="1. Make sure the password has a number.">
+                       <font>
+                           <Font name="Arial Bold" size="15.0" />
+                       </font>
+                   </Label>
+                   <Label layoutX="14.0" layoutY="47.0" prefHeight="40.0" prefWidth="450.0" text="2. Make sure to re-enter the same password.">
+                       <font>
+                           <Font name="Arial Bold" size="15.0" />
+                       </font>
+                   </Label>
+            </children>
+            </Pane>
+        </VBox>
+    </Pane>
+    <!-- USER INFORMATION STAGE -->
+   <Pane fx:id="user_info" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css">
+      <children>
+         <VBox prefHeight="388.0" prefWidth="489.0">
+            <children>
+               <Pane prefHeight="77.0" prefWidth="489.0">
+                  <children>
+                     <Label alignment="CENTER" layoutX="134.0" layoutY="25.0" text="ACCOUNT INFORMATION" underline="true">
+                        <font>
+                           <Font name="Arial Bold" size="18.0" />
+                        </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="6.0" layoutY="55.0" text="Make sure you remember your account especially the privacy code" textFill="DARKRED">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Button layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#onBackButton_userInfo" text="Back">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </Pane>
+               <Pane prefHeight="116.0" prefWidth="489.0">
+                  <children>
+                     <Label alignment="CENTER_RIGHT" layoutX="148.0" layoutY="14.0" prefHeight="30.0" text="Your account:">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="account_info" layoutX="256.0" layoutY="14.0" prefHeight="30.0" prefWidth="229.0" text="Account name">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Label alignment="CENTER_RIGHT" layoutX="109.0" layoutY="44.0" prefHeight="30.0" prefWidth="140.0" text="Your password:">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="password_info" layoutX="256.0" layoutY="44.0" prefHeight="30.0" prefWidth="229.0" text="Account password">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Label alignment="CENTER_RIGHT" layoutX="99.0" layoutY="74.0" prefHeight="30.0" prefWidth="150.0" text="The PRIVACY code:">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="privacyCode_info" layoutX="256.0" layoutY="74.0" prefHeight="30.0" prefWidth="229.0" text="Code" textFill="DARKRED">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <ImageView fx:id="avatar_image" fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@photo/welcome-view/user.png" />
+                        </image>
+                     </ImageView>
+                     <Label fx:id="nickName" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="84.0" prefHeight="30.0" text="Nickname">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </Pane>
+               <Pane prefHeight="2.0" prefWidth="489.0" style="-fx-background-color: Black;">
+                  <VBox.margin>
+                     <Insets left="75.0" right="75.0" />
+                  </VBox.margin>
+               </Pane>
+               <Pane prefHeight="90.0" prefWidth="489.0">
+                  <children>
+                     <Button layoutX="207.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#onSignInClick" text="Sign-in">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Button>
+                     <Label alignment="CENTER" layoutX="99.0" layoutY="6.0" text="You can sign-in by clicking button below">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </Pane>
+            </children>
+         </VBox>
+      </children>
+   </Pane>
+    <!-- RESTORE PASSWORD -->
+   <Pane fx:id="restorePass_pane" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css" visible="false">
+      <children>
+         <VBox prefHeight="388.0" prefWidth="489.0">
+            <children>
+               <Pane prefHeight="50.0" prefWidth="489.0">
+                  <children>
+                     <Label layoutX="120.0" layoutY="10.0" prefHeight="31.0" prefWidth="250.0" text="PASSWORD RESTORATION" underline="true">
+                        <font>
+                           <Font name="Arial Bold" size="18.0" />
+                        </font>
+                     </Label>
+                     <Button layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#onBackButton_restorePass" text="Back">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </Pane>
+               <Pane prefHeight="40.0" prefWidth="489.0">
+                  <children>
+                     <Label layoutX="72.0" layoutY="5.0" prefHeight="30.0" prefWidth="101.0" text="Your account:">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="restorePass_account" layoutX="178.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your account" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                        <font>
+                           <Font name="Arial" size="15.0" />
+                        </font>
+                     </TextField>
+                  </children>
+               </Pane>
+               <Pane prefHeight="40.0" prefWidth="489.0">
+                  <children>
+                     <Label layoutX="23.0" layoutY="5.0" prefHeight="30.0" prefWidth="150.0" text="Your PRIVACY code:">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <TextField fx:id="restorePass_code" layoutX="178.0" layoutY="5.0" prefHeight="30.0" prefWidth="240.0" promptText="Enter your privacy code" style="-fx-background-color: empty; -fx-border-color: Black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+                        <font>
+                           <Font name="Arial" size="15.0" />
+                        </font>
+                     </TextField>
+                  </children>
+               </Pane>
+               <Pane prefHeight="40.0" prefWidth="489.0">
+                  <children>
+                     <Button layoutX="207.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onSubmitClick" text="Submit">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </Pane>
+               <Pane prefHeight="2.0" prefWidth="489.0" style="-fx-background-color: Black;">
+                  <VBox.margin>
+                     <Insets left="75.0" right="75.0" />
+                  </VBox.margin>
+               </Pane>
+               <Pane prefHeight="40.0" prefWidth="489.0">
+                  <children>
+                     <Label layoutX="135.0" layoutY="5.0" prefHeight="30.0" prefWidth="115.0" text="Your password:">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="password_after_restore" layoutX="254.0" layoutY="5.0" prefHeight="30.0" prefWidth="101.0" textFill="DARKRED">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </Pane>
+               <Pane prefHeight="2.0" prefWidth="489.0" style="-fx-background-color: Black;">
+                  <VBox.margin>
+                     <Insets left="75.0" right="75.0" />
+                  </VBox.margin>
+               </Pane>
+               <Pane prefHeight="40.0" prefWidth="489.0">
+                  <children>
+                     <Button layoutX="207.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onSignInClick" text="Sign-in">
+                        <font>
+                           <Font name="Arial Bold" size="15.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </Pane>
+            </children>
+         </VBox>
+      </children>
+   </Pane>
+</AnchorPane>
