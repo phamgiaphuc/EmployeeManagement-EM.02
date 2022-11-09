@@ -96,7 +96,7 @@ public class Add extends BaseService implements Initializable {
      * Functions
      */
     // STAGE 1: Filling employee
-    // Suggesting ID button: Suggest an ID for the user
+    // 1.1 Suggesting ID button: Suggest an ID for the user
     public void idSuggestion() {
         try {
             int suggestID = suggestId();
@@ -107,7 +107,7 @@ public class Add extends BaseService implements Initializable {
         }
     }
 
-    // Getting input information from the user
+    // 1.2 Getting input information from the user
     private String getEmployeeInfo() {
         employee_ID = checkInfo(ID.getText().trim());
         employee_NAME = checkInfo(NAME.getText().trim());
@@ -118,7 +118,7 @@ public class Add extends BaseService implements Initializable {
         return employee_ID + "@" + employee_NAME + "@" + employee_AGE + "@" + employee_ADDRESS + "@" + employee_JOB + "@" + employee_LEVEL;
     }
 
-    // Checking if ID or AGE is an integer
+    // 1.3 Checking if ID or AGE is an integer
     private int checkIfIsInteger(MouseEvent event) {
         if (checkInteger(employee_ID) == -1) {
             errorAdd("Wrong information error", "Please type the right integer/number for ID", event);
@@ -142,8 +142,8 @@ public class Add extends BaseService implements Initializable {
         return 0;
     }
 
-    // Checking if the ID is already had in the list - if it is true, alert the user to input a new ID again.
-    public int checkIDTextField(MouseEvent event) {
+    // 1.4 Checking if the ID is already had in the list - if it is true, alert the user to input a new ID again.
+    private int checkIDTextField(MouseEvent event) {
         int result = checkId(employee_ID);
         if (result == -1) {
             errorAdd("Duplicated ID error", "This ID " + employee_ID + " is already had. Please try another id", event);
@@ -155,8 +155,8 @@ public class Add extends BaseService implements Initializable {
         return 0;
     }
 
-    // Checking if theres is a string "null" in the final output of user's information
-    public String checkEmptyText() {
+    // 1.5 Checking if theres is a string "null" in the final output of user's information
+    private String checkEmptyText() {
         String isEmpty = "true";
         MISSING_DATA = "";
         String[] checkEmptyText = DATA.split("@");
@@ -173,7 +173,7 @@ public class Add extends BaseService implements Initializable {
         return isEmpty;
     }
 
-    // Missing information
+    // 1.6 Missing information
     private String missingFeature(int i) {
         String missingFeature;
         Map<Integer, String> mapFeature = new HashMap<>();
@@ -188,7 +188,7 @@ public class Add extends BaseService implements Initializable {
         return missingFeature;
     }
 
-    // Display a table of user information
+    // 1.7 Display a table of user information
     private void tableAddView() {
         addList = FXCollections.observableArrayList(new Employee(Integer.parseInt(employee_ID), employee_NAME, Integer.parseInt(employee_AGE), employee_ADDRESS, employee_JOB, employee_LEVEL));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -200,7 +200,7 @@ public class Add extends BaseService implements Initializable {
         table.setItems(addList);
     }
 
-    // Alert
+    // 1.8 Alert
     private void errorAdd(String error_title, String error_text, MouseEvent event) {
         Alert error_add = new Alert(Alert.AlertType.ERROR, error_title, ButtonType.OK);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -214,15 +214,43 @@ public class Add extends BaseService implements Initializable {
         error_add.showAndWait();
     }
 
+    // 1.9 Advice is on/off
     private void idAdviceOn() {
         ID_ADVICE.setText("Recommend using suggesting ID button!");
     }
 
-    public void idAdviceOff() {
+    private void idAdviceOff() {
         ID_ADVICE.setText("Must be a number!");
     }
 
-    // Confirm button
+    // 1.10 ComboBox
+    // ComboBox for job options
+    public void job_comboBox() {
+        jobComboBox.setItems(job_list);
+    }
+
+    // ComboBox for level options
+    public void level_comboBox(MouseEvent event) {
+        String job = jobComboBox.getValue();
+        if (job.equals("Economy")) {
+            levelComboBox.setItems(economy_list);
+        } else if (job.equals("Develop")) {
+            levelComboBox.setItems(develop_list);
+        } else {
+            Alert empty_job_option = new Alert(Alert.AlertType.ERROR, "Empty job option", ButtonType.OK);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            empty_job_option.setTitle("Empty job option");
+            empty_job_option.setContentText("The job is missing!");
+            empty_job_option.initModality(Modality.APPLICATION_MODAL);
+            empty_job_option.initOwner(stage);
+            empty_job_option.showAndWait();
+            if (empty_job_option.getResult() == ButtonType.OK) {
+                empty_job_option.close();
+            }
+        }
+    }
+
+    // 1.11 Confirm button
     public void onConfirmButtonClick(MouseEvent event) {
         DATA = getEmployeeInfo();
         System.out.println(DATA);
@@ -240,7 +268,7 @@ public class Add extends BaseService implements Initializable {
     }
 
     // STAGE 2: Confirm and add employee information to the data
-    // Add button
+    // 2.1 Add button
     public void onAddButtonClick(MouseEvent event) throws IOException {
         Alert final_confirmation = new Alert(Alert.AlertType.CONFIRMATION, "Notification", ButtonType.YES, ButtonType.CANCEL);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -266,6 +294,7 @@ public class Add extends BaseService implements Initializable {
         }
     }
 
+    // 2.2 Add employee information
     private void addInfo() {
         if (employee_JOB.equals("Worker")) {
             WorkerService workerService = new WorkerService();
@@ -286,32 +315,5 @@ public class Add extends BaseService implements Initializable {
         Parent addParent = loader.load();
         Scene addScene = new Scene(addParent);
         stage.setScene(addScene);
-    }
-
-    // ComboBox
-    // ComboBox for job options
-    public void job_comboBox() {
-        jobComboBox.setItems(job_list);
-    }
-
-    // ComboBox for level options
-    public void level_comboBox(MouseEvent event) {
-        String job = jobComboBox.getValue();
-        if (job.equals("Economy")) {
-            levelComboBox.setItems(economy_list);
-        } else if (job.equals("Develop")) {
-            levelComboBox.setItems(develop_list);
-        } else {
-            Alert empty_job_option = new Alert(Alert.AlertType.ERROR, "Empty job option", ButtonType.OK);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            empty_job_option.setTitle("Empty job option");
-            empty_job_option.setContentText("The job is missing!");
-            empty_job_option.initModality(Modality.APPLICATION_MODAL);
-            empty_job_option.initOwner(stage);
-            empty_job_option.showAndWait();
-            if (empty_job_option.getResult() == ButtonType.OK) {
-                empty_job_option.close();
-            }
-        }
     }
 }

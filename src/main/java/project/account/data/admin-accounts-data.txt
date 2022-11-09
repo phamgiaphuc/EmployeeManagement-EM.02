@@ -1,0 +1,1 @@
+admin,1,S6158!,/Users/macbook/Desktop/Acus/Home/Projects/Work/EmployeeManagement-EM.02/src/main/resources/application/employeemanagement/avatar/ava_2.png,Acus
