@@ -10,5 +10,7 @@ module application.employeemanagement {
     requires java.desktop;
 
     opens application.employeemanagement to javafx.fxml;
+    opens application.employeemanagement.function to javafx.fxml;
+    opens project.employee to javafx.base;
     exports application.employeemanagement;
 }

@@ -1,13 +1,14 @@
 package project.employee.worker;
 
 import project.employee.Worker;
+import project.employee.base.BaseService;
 import utilities.ConstVariables;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class WorkerService {
+public class WorkerService extends BaseService {
     public void addWorkerToFile(Worker worker) {
         FileWriter myList;
         try {

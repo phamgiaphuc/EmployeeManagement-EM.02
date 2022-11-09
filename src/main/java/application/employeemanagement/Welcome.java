@@ -14,7 +14,7 @@ public class Welcome extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Welcome.class.getResource("welcome-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        String company_icon_path = "src/main/resources/application/employeemanagement/photo/acus_company.png";
+        String company_icon_path = "src/main/resources/application/employeemanagement/photo/welcome-view/acus_company.png";
         stage.getIcons().add(new Image(Paths.get(company_icon_path).toUri().toString()));
         stage.setTitle("Acus Company Management Program");
         stage.setScene(scene);

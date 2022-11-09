@@ -1,1 +1,0 @@
-admin,13042004z,S3973&,/Users/macbook/Desktop/Acus/Home/Projects/Java/OnProcess/EmployeeManagement/src/main/resources/application/employeemanagement/avatar/ava_2.png,Acus

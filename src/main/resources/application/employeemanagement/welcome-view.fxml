@@ -378,7 +378,7 @@
         </VBox>
     </Pane>
     <!-- USER INFORMATION STAGE -->
-   <Pane fx:id="user_info" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css" visible="false">
+   <Pane fx:id="user_info" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css">
       <children>
          <VBox prefHeight="388.0" prefWidth="489.0">
             <children>

@@ -11,7 +11,7 @@
 2. Object-Oriented Programming (OOP) and OOP principles.
 3. JavaFX and CSS (Front-end).
 4. Maven.
-5. Class diagram.
+5. Class and sequence diagram.
 
 -----------------------------------
 <ins>
@@ -33,7 +33,7 @@
 - When running the program, admins enter a welcome view which has **four functions**: sign-in, sign-out,
   information and exit.
 
-- After signing in successfully, there is an admin view which contains **seven functions**: dashboard, add, show, edit, delete, comment, admin
+- After signing in successfully, there is an admin view which contains **seven functions**: dashboard, add, search, edit, delete, comment, admin
   and basic things like exit, settings,... buttons.
 
 ### STEP 3: Run the program
@@ -48,6 +48,8 @@ Click the file path below:
 ### OPERATING ILLUSTRATION PICTURES
 
 </ins>
+
+#### Stage 1: Sign-in stage
 
 **1. Welcome users or admins:**
 
