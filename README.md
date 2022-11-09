@@ -30,11 +30,11 @@
 
 ### STEP 2: Program is configured as follows
 
-- When running the program, admins enter a welcome view which has **four functions**: sign-in, sign-out,
+- When running the program, admins enter a welcome stage which has **four functions**: sign-in, sign-out,
   information and exit.
 
-- After signing in successfully, there is an admin view which contains **seven functions**: dashboard, add, search, edit, delete, comment, admin
-  and basic things like exit, settings,... buttons.
+- After signing in successfully, there is an admin stage which contains **seven functions**: dashboard, add, search, edit, delete, comment, admin
+  and basic things like exit, settings,...
 
 ### STEP 3: Run the program
 
@@ -49,28 +49,18 @@ Click the file path below:
 
 </ins>
 
-#### Stage 1: Sign-in stage
+### Sign-in stage/Welcome stage
 
-**1. Welcome users or admins:**
+![](src/main/resources/readme/img_1.png) ![](src/main/resources/readme/img_2.png) ![](src/main/resources/readme/img_3.png)
+ 
+![](src/main/resources/readme/img_4.png) ![](src/main/resources/readme/img_5.png)
 
-![](src/main/resources/readme/photo/img_1.png)
+### Admin stage
 
-**2. Sign-in:**
+![](src/main/resources/readme/img_6.png)
 
-![](src/main/resources/readme/photo/img_2.png)
+**1. Add stage**
 
-**3. Sign-up:**
+![](src/main/resources/readme/img_7.png)
 
-![](src/main/resources/readme/photo/img_3.png)
 
-**4. Forgot the password:**
-
-![](src/main/resources/readme/photo/img_4.png)
-
-**5. When users successfully create accounts:**
-
-![](src/main/resources/readme/photo/img_5.png)
-
-**6. When users forgot their account passwords:**
-
-![](src/main/resources/readme/photo/img_6.png)

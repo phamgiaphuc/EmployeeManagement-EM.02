@@ -73,3 +73,11 @@ TABLE VIEW
     -fx-font-weight: bold;
     -fx-alignment: CENTER;
 }
+
+.table-view .cell{
+    -fx-cell-size: 35;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-alignment: CENTER;
+
+}

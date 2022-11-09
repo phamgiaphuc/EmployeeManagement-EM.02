@@ -289,7 +289,7 @@
                         <Font name="Arial" size="15.0" />
                     </font>
                 </TextField>
-            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="416.0" layoutY="-10.0">
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="415.0" layoutY="-11.0">
                <image>
                   <Image url="@photo/welcome-view/signup.png" />
                </image>
@@ -378,7 +378,7 @@
         </VBox>
     </Pane>
     <!-- USER INFORMATION STAGE -->
-   <Pane fx:id="user_info" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css">
+   <Pane fx:id="user_info" layoutX="204.0" layoutY="6.0" prefHeight="388.0" prefWidth="489.0" styleClass="background" stylesheets="@css/hello.css" visible="false">
       <children>
          <VBox prefHeight="388.0" prefWidth="489.0">
             <children>

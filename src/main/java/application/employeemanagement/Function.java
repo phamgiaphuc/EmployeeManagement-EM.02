@@ -54,6 +54,8 @@ public class Function implements Initializable {
     @FXML
     private Label realTimeClock;
     @FXML
+    private Label employee_number;
+    @FXML
     private TextField searching_text;
     @FXML
     private TableView<Employee> realtimeDataTable;
@@ -130,6 +132,8 @@ public class Function implements Initializable {
         switch (text.toLowerCase()) {
             case "" -> missing_searchingText(event);
             case "add" -> onAddButtonClick(event);
+            case "search", "show" -> onSearchButtonClick(event);
+            case "comment" -> onCommentButtonClick(event);
             default -> invalid_searchingText(event);
         }
     }
@@ -171,14 +175,18 @@ public class Function implements Initializable {
      * Table view
      */
     public void show_employeeData() {
+        int count = 0;
         try {
             realtimeDataTable.refresh();
             BufferedReader reader = new BufferedReader(new FileReader(ConstVariables.EMPLOYEE_DATA_PATH));
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
+                count++;
                 String[] data = currentLine.split("@");
                 showTableView(data);
             }
+            employee_number.setText(String.valueOf(count));
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -226,6 +234,32 @@ public class Function implements Initializable {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(Function.class.getResource("add-view.fxml"));
+            Parent addParent = loader.load();
+            Scene addScene = new Scene(addParent);
+            stage.setScene(addScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Search
+    public void onSearchButtonClick(MouseEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(Function.class.getResource("search-view.fxml"));
+            Parent addParent = loader.load();
+            Scene addScene = new Scene(addParent);
+            stage.setScene(addScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Comment
+    public void onCommentButtonClick(MouseEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(Function.class.getResource("note-view.fxml"));
             Parent addParent = loader.load();
             Scene addScene = new Scene(addParent);
             stage.setScene(addScene);
