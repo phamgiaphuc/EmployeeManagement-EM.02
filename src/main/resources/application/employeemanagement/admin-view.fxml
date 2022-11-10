@@ -51,12 +51,12 @@
                   <Image url="@photo/welcome-view/user.png" />
                </image>
             </ImageView>
-            <Button layoutX="519.0" layoutY="110.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" styleClass="black-button" text="Avatar">
+            <Button onMouseClicked="#onAvatarButtonClick" layoutX="519.0" layoutY="110.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" styleClass="black-button" text="Avatar">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="293.0" layoutY="172.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" styleClass="black-button" text="Confirm">
+            <Button onMouseClicked="#onConfirmButtonClick" layoutX="293.0" layoutY="172.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" styleClass="black-button" text="Confirm">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
