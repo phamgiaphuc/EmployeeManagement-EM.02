@@ -336,7 +336,7 @@ public class Edit extends BaseService implements Initializable {
         if (count == 0) {
             area.setText("area.");
         } else if (count == 1) {
-            area.setText(CHANGED_AREA + "area.");
+            area.setText("area: " + CHANGED_AREA + ".");
         } else {
             area.setText("areas: " + CHANGED_AREA + ".");
         }

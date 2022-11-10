@@ -88,5 +88,7 @@ Click the file path below:
 
 **6. Admin**
 
+![](src/main/resources/readme/img_12.png)
+
 
 

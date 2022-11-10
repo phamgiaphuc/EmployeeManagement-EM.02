@@ -1,1 +1,2 @@
 1@Acus Gia Phuc@18@Ho Chi Minh@Develop@Full-stack
+2@Pham Gia Phuc@18@Ha Noi@Economy@Manager
