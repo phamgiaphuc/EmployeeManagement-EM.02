@@ -65,6 +65,7 @@ public class SignUp {
                         return check;
                     }
                 }
+                reader.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -103,6 +104,7 @@ public class SignUp {
                 String temp = array[2].substring(1, array[2].length() - 1);
                 set.add(Integer.parseInt(temp));
             }
+            reader.close();
             return set.contains(num);
         }
     }

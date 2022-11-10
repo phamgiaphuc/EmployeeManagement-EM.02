@@ -38,6 +38,7 @@ public class Restoration {
                 check = 3;
             }
         }
+        reader.close();
         result();
         return check;
     }

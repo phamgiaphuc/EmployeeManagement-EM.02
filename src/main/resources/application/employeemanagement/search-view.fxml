@@ -33,18 +33,18 @@
                         <Font name="Arial Bold" size="15.0" />
                     </font>
                 </Label>
-                <Button onMouseClicked="#onShowButtonClick" layoutX="336.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="black-button" text="Show">
+                <Button layoutX="336.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onShowButtonClick" prefHeight="30.0" prefWidth="100.0" styleClass="black-button" text="Show">
                     <font>
                         <Font name="Arial Bold" size="15.0" />
                     </font>
                 </Button>
-            <ComboBox fx:id="showOptionComboBox" onMouseClicked="#showOption_comboBox" layoutX="179.0" layoutY="15.0" prefWidth="150.0" promptText="OPTIONS" styleClass="black-button" />
-            <Button onMouseClicked="#onSearchIDButtonClick" layoutX="474.0" layoutY="14.0" mnemonicParsing="false"  prefHeight="30.0" prefWidth="125.0" styleClass="black-button" text="Searching ID">
+            <ComboBox fx:id="showOptionComboBox" layoutX="179.0" layoutY="15.0" onMouseClicked="#showOption_comboBox" prefWidth="150.0" promptText="OPTIONS" styleClass="black-button" />
+            <Button layoutX="474.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onSearchIDButtonClick" prefHeight="30.0" prefWidth="125.0" styleClass="black-button" text="Searching ID">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
-            <TextField fx:id="idSearch" layoutX="607.0" layoutY="15.0" prefWidth="200.0" promptText="Enter the ID" styleClass="black-button" />
+            <TextField fx:id="idSearch" layoutX="607.0" layoutY="15.0" prefWidth="200.0" promptText="Enter the ID" />
             <TableView fx:id="table" layoutX="29.0" layoutY="55.0" prefHeight="453.0" prefWidth="830.0" styleClass="table-view">
                <columns>
                   <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
