@@ -31,7 +31,7 @@ public class Search {
     @FXML
     private ComboBox<String> showOptionComboBox;
     @FXML
-    private TableView<Employee> table;
+    public TableView<Employee> table;
     @FXML
     private TableColumn<Employee, Integer> idColumn;
     @FXML
@@ -46,6 +46,7 @@ public class Search {
     private TableColumn<Employee, String> levelColumn;
     @FXML
     private TextField idSearch;
+    public String line;
 
     // ObservableList
     ObservableList<String> showOption_list = FXCollections.observableArrayList("Show all", "Show economy list", "Show develop list");
@@ -90,6 +91,7 @@ public class Search {
         }
     }
 
+    // Search employee by ID
     public void onSearchIDButtonClick(MouseEvent event) throws IOException {
         if (idSearch.getText().equals("")) {
             errorSearch("Please choose an ID to search", event);
@@ -122,8 +124,8 @@ public class Search {
     private void errorSearch(String error_text, MouseEvent event) {
         Alert error_add = new Alert(Alert.AlertType.ERROR, "Empty Show Option", ButtonType.OK);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        error_add.setTitle("Empty Show Option" + "!");
-        error_add.setContentText(error_text);
+        error_add.setTitle("Empty Show Option");
+        error_add.setContentText(error_text + "!");
         Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png");
         ImageView imageView = new ImageView(image);
         error_add.setGraphic(imageView);
@@ -135,7 +137,7 @@ public class Search {
     // Back button
     public void onBackButtonClick(MouseEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(Function.class.getResource("admin-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(Function.class.getResource("main-view.fxml"));
         Parent addParent = loader.load();
         Scene addScene = new Scene(addParent);
         stage.setScene(addScene);
@@ -144,4 +146,5 @@ public class Search {
     public void showOption_comboBox() {
         showOptionComboBox.setItems(showOption_list);
     }
+
 }

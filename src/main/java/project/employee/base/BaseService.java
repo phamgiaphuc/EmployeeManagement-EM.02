@@ -3,8 +3,10 @@ package project.employee.base;
 import utilities.ConstVariables;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,7 +58,7 @@ public class BaseService {
                     String[] array = trimmedLine.split("@");
                     if (array[0].equals(id)) {
                         check = -1;
-                        System.out.println("This ID " + "'" + id + "'" + " is aLready had. Please try another id." + "\n");
+                        System.out.println("This ID " + "'" + id + "'" + " is already had. Please try another id." + "\n");
                         break;
                     }
                 }
@@ -98,5 +100,27 @@ public class BaseService {
             }
         }
         return num;
+    }
+
+    // Edit employee information
+    public void editAndAdd(String data, String id) throws IOException {
+        String[] new_data = data.split("@");
+        File file = new File(ConstVariables.EMPLOYEE_DATA_PATH);
+        File temp = new File("temp.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
+        String curentLine;
+        while ((curentLine = reader.readLine()) != null) {
+            String[] array = curentLine.split("@");
+            if (array[0].equals(id)) {
+                writer.write(new_data[0] + "@" + new_data[1] + "@" + new_data[2] + "@" + new_data[3] + "@" + new_data[4] + "@" + new_data[5] + "\n");
+            } else {
+                writer.write(curentLine + "\n");
+            }
+        }
+        writer.close();
+        reader.close();
+        temp.renameTo(file);
+        System.out.println("Change successful!");
     }
 }

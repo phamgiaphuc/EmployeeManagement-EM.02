@@ -123,6 +123,7 @@ public class Control implements Initializable {
         exitAlert.showAndWait();
         if (exitAlert.getResult() == ButtonType.OK) {
             Platform.exit();
+            System.exit(0);
         } else {
             exitAlert.close();
         }
@@ -158,7 +159,7 @@ public class Control implements Initializable {
                     // Situation 1: Logged in successfully
                     System.out.println("Account " + account.getText() + " sign-in successfully!");
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    FXMLLoader loader = new FXMLLoader(Control.class.getResource("admin-view.fxml"));
+                    FXMLLoader loader = new FXMLLoader(Control.class.getResource("main-view.fxml"));
                     Parent addParent = loader.load();
                     Scene addScene = new Scene(addParent);
                     stage.setScene(addScene);
@@ -266,14 +267,14 @@ public class Control implements Initializable {
                     case "apError" -> errorSituation("Error!", "You need to sign up correctly!", event);
                     // Situation 4: Successfully sign-up
                     case "continue" -> {
-                        Alert signingUp = new Alert(Alert.AlertType.CONFIRMATION, "Signing up account", ButtonType.OK);
+                        Alert signingUp = new Alert(Alert.AlertType.CONFIRMATION, "Signing up account", ButtonType.YES, ButtonType.NO);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         signingUp.setTitle("Signing up account");
                         signingUp.setContentText("Are you sure to sign up the account?");
                         signingUp.initModality(Modality.APPLICATION_MODAL);
                         signingUp.initOwner(stage);
                         signingUp.showAndWait();
-                        if (signingUp.getResult() == ButtonType.OK) {
+                        if (signingUp.getResult() == ButtonType.YES) {
                             // Each new account will have a privacy code to get back the password
                             String privacyCode = signUp.addUserAccount();
                             Alert signingUpSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Signing account", ButtonType.OK, ButtonType.CANCEL);

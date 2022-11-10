@@ -31,6 +31,17 @@ BUTTON
 }
 
 /**
+TEXT FIELD
+ */
+.text-field {
+    -fx-background-color: empty;
+    -fx-border-color: black;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+}
+
+/**
 TABLE VIEW
  */
 .table-view {

@@ -96,7 +96,7 @@ public class Add extends BaseService implements Initializable {
      * Functions
      */
     // STAGE 1: Filling employee
-    // 1.1 Suggesting ID button: Suggest an ID for the user
+    // 1.1 Suggest ID button: Suggest an ID for the user
     public void idSuggestion() {
         try {
             int suggestID = suggestId();
@@ -107,7 +107,7 @@ public class Add extends BaseService implements Initializable {
         }
     }
 
-    // 1.2 Getting input information from the user
+    // 1.2 Get input information from the user
     private String getEmployeeInfo() {
         employee_ID = checkInfo(ID.getText().trim());
         employee_NAME = checkInfo(NAME.getText().trim());
@@ -118,7 +118,7 @@ public class Add extends BaseService implements Initializable {
         return employee_ID + "@" + employee_NAME + "@" + employee_AGE + "@" + employee_ADDRESS + "@" + employee_JOB + "@" + employee_LEVEL;
     }
 
-    // 1.3 Checking if ID or AGE is an integer
+    // 1.3 Check if ID or AGE is an integer
     private int checkIfIsInteger(MouseEvent event) {
         if (checkInteger(employee_ID) == -1) {
             errorAdd("Wrong information error", "Please type the right integer/number for ID", event);
@@ -142,7 +142,7 @@ public class Add extends BaseService implements Initializable {
         return 0;
     }
 
-    // 1.4 Checking if the ID is already had in the list - if it is true, alert the user to input a new ID again.
+    // 1.4 Check if the ID is already had in the list - if it is true, alert the user to input a new ID again.
     private int checkIDTextField(MouseEvent event) {
         int result = checkId(employee_ID);
         if (result == -1) {
@@ -155,7 +155,7 @@ public class Add extends BaseService implements Initializable {
         return 0;
     }
 
-    // 1.5 Checking if theres is a string "null" in the final output of user's information
+    // 1.5 Check if theres is a string "null" in the final output of user's information
     private String checkEmptyText() {
         String isEmpty = "true";
         MISSING_DATA = "";
@@ -188,7 +188,7 @@ public class Add extends BaseService implements Initializable {
         return missingFeature;
     }
 
-    // 1.7 Display a table of user information
+    // 1.7 Display a table of employee information
     private void tableAddView() {
         addList = FXCollections.observableArrayList(new Employee(Integer.parseInt(employee_ID), employee_NAME, Integer.parseInt(employee_AGE), employee_ADDRESS, employee_JOB, employee_LEVEL));
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -204,8 +204,8 @@ public class Add extends BaseService implements Initializable {
     private void errorAdd(String error_title, String error_text, MouseEvent event) {
         Alert error_add = new Alert(Alert.AlertType.ERROR, error_title, ButtonType.OK);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        error_add.setTitle(error_title + "!");
-        error_add.setContentText(error_text);
+        error_add.setTitle(error_title);
+        error_add.setContentText(error_text + "!");
         Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png");
         ImageView imageView = new ImageView(image);
         error_add.setGraphic(imageView);
@@ -311,7 +311,7 @@ public class Add extends BaseService implements Initializable {
     // Back button
     public void onBackButtonClick(MouseEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(Function.class.getResource("admin-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(Function.class.getResource("main-view.fxml"));
         Parent addParent = loader.load();
         Scene addScene = new Scene(addParent);
         stage.setScene(addScene);

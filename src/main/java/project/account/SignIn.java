@@ -40,6 +40,7 @@ public class SignIn {
                     check = 3;
                 }
             }
+            reader.close();
         }
         return check;
     }

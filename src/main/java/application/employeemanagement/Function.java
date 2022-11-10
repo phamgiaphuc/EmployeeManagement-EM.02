@@ -37,7 +37,6 @@ import java.util.ResourceBundle;
 public class Function implements Initializable {
     // Variables
     private String account;
-    private String password;
     private String privacyCode;
     private String avatar;
     private String nickname;
@@ -87,10 +86,25 @@ public class Function implements Initializable {
     // Get info
     private void getInfo() {
         account = Account.getAccount();
-        password = Account.getPassword();
         privacyCode = Account.getPrivacyCode();
-        avatar = Account.getAvatar();
-        nickname = Account.getNickName();
+        readAdminInfo();
+    }
+
+    private void readAdminInfo() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(ConstVariables.LIST_ACCOUNTS_PATH));
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                String[] data = currentLine.split(",");
+                if (data[0].equals(account) && data[2].equals(privacyCode)) {
+                    avatar = data[3];
+                    nickname = data[4];
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Set info
@@ -133,6 +147,9 @@ public class Function implements Initializable {
             case "" -> missing_searchingText(event);
             case "add" -> onAddButtonClick(event);
             case "search", "show" -> onSearchButtonClick(event);
+            case "edit" -> onEditButtonClick(event);
+            // case "delete" -> onDeleteButtonClick(event);
+            case "admin" -> onAdminButtonClick(event);
             case "comment" -> onCommentButtonClick(event);
             default -> invalid_searchingText(event);
         }
@@ -206,11 +223,6 @@ public class Function implements Initializable {
     /**
      * Functions:
      */
-    // Dashboard
-    public void onDashboardClick(MouseEvent event) {
-
-    }
-
     // Signing out
     public void onSignOutClick(MouseEvent event) throws IOException {
         Alert signOutConfirmation = new Alert(Alert.AlertType.CONFIRMATION, "Sign-out confirmation", ButtonType.CANCEL, ButtonType.OK);
@@ -247,6 +259,32 @@ public class Function implements Initializable {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(Function.class.getResource("search-view.fxml"));
+            Parent addParent = loader.load();
+            Scene addScene = new Scene(addParent);
+            stage.setScene(addScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Edit
+    public void onEditButtonClick(MouseEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(Function.class.getResource("edit-view.fxml"));
+            Parent addParent = loader.load();
+            Scene addScene = new Scene(addParent);
+            stage.setScene(addScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Delete
+    public void onAdminButtonClick(MouseEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(Function.class.getResource("admin-view.fxml"));
             Parent addParent = loader.load();
             Scene addScene = new Scene(addParent);
             stage.setScene(addScene);

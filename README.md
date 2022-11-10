@@ -30,11 +30,22 @@
 
 ### STEP 2: Program is configured as follows
 
-- When running the program, admins enter a welcome stage which has **four functions**: sign-in, sign-out,
-  information and exit.
+**2.1 When running the program, admins enter a welcome stage which has _four functions_: sign-in, sign-out,
+  information and exit:**
 
-- After signing in successfully, there is an admin stage which contains **seven functions**: dashboard, add, search, edit, delete, comment, admin
-  and basic things like exit, settings,...
+- Sign-in: Users have to log in by a registered account. If they do not have any accounts or forget the log-in account, they need to go to the sign-up stage or password restoration.
+- Sign-up: Users register an admin account. Each admin account has a specific PRIVACY code which help users to get back the password.
+- Information: To know more about the project.
+- Exit: Exit the program.
+
+**2.2 After signing in successfully, there is an admin stage which contains _six functions_: add, search, edit, delete, note, admin:**
+
+- Add: Adding employee information to the data.
+- Search: Show employee or search a specific employee by the ID.
+- Edit: Edit employee information.
+- Delete: Delete employee information.
+- Note: Note section for admins.
+- Admin: Changing admin account like avatar, password and nickname.
 
 ### STEP 3: Run the program
 
@@ -51,16 +62,31 @@ Click the file path below:
 
 ### Sign-in stage/Welcome stage
 
-![](src/main/resources/readme/img_1.png) ![](src/main/resources/readme/img_2.png) ![](src/main/resources/readme/img_3.png)
- 
-![](src/main/resources/readme/img_4.png) ![](src/main/resources/readme/img_5.png)
+![](src/main/resources/readme/img_1.png) ![](src/main/resources/readme/img_2.png) ![](src/main/resources/readme/img_3.png) ![](src/main/resources/readme/img_4.png)  ![](src/main/resources/readme/img_5.png)
 
 ### Admin stage
 
 ![](src/main/resources/readme/img_6.png)
 
-**1. Add stage**
+**1. Add**
 
 ![](src/main/resources/readme/img_7.png)
+
+**2. Search**
+
+![](src/main/resources/readme/img_8.png)
+
+**3. Edit**
+
+![](src/main/resources/readme/img_9.png)
+
+**4. Delete**
+
+**5. Note**
+
+![](src/main/resources/readme/img_10.png)
+
+**6. Admin**
+
 
 
