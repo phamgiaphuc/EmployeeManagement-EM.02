@@ -20,6 +20,10 @@ public class Welcome extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        stage.setOnCloseRequest(windowEvent -> {
+            stage.close();
+            System.exit(0);
+        });
     }
 
     public static void main(String[] args) {

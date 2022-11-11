@@ -82,6 +82,8 @@ Click the file path below:
 
 **4. Delete**
 
+![](src/main/resources/readme/img_11.png)
+
 **5. Note**
 
 ![](src/main/resources/readme/img_10.png)

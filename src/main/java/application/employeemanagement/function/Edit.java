@@ -152,7 +152,7 @@ public class Edit extends BaseService implements Initializable {
     // Search employee by ID
     public void onSearchIDButtonClick(MouseEvent event) throws IOException {
         if (idSearch.getText().equals("")) {
-            errorSearch("Empty Show Option", "Please choose an ID to search", event);
+            errorSearch("Empty Search Option", "Please choose an ID to search", event);
         } else {
             clear_editLine();
             table.getItems().clear();
@@ -165,6 +165,30 @@ public class Edit extends BaseService implements Initializable {
                 }
             }
             reader.close();
+        }
+    }
+
+    // Check ID button
+    public void onCheckIDButtonClick(MouseEvent event) {
+        String check = checkInfo(id.getText().trim());
+        if (check.equals("null")) {
+            errorSearch("Empty ID error", "The ID is empty", event);
+        } else {
+            if (checkInteger(check) == 0) {
+                if (checkId(check) == 0) {
+                    Alert error_search = new Alert(Alert.AlertType.NONE, "Check ID successfully", ButtonType.OK);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    error_search.setTitle("Check ID successfully");
+                    error_search.setContentText("ID " + check + " is compatible.");
+                    error_search.initModality(Modality.APPLICATION_MODAL);
+                    error_search.initOwner(stage);
+                    error_search.showAndWait();
+                } else {
+                    errorSearch("Duplicated ID error", "This ID " + "'" + check + "'" + " is already exist. Please try another id", event);
+                }
+            } else {
+                errorSearch("Invalid ID error", "The ID is invalid", event);
+            }
         }
     }
 

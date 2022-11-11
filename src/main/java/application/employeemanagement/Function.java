@@ -148,7 +148,7 @@ public class Function implements Initializable {
             case "add" -> onAddButtonClick(event);
             case "search", "show" -> onSearchButtonClick(event);
             case "edit" -> onEditButtonClick(event);
-            // case "delete" -> onDeleteButtonClick(event);
+            case "delete" -> onDeleteButtonClick(event);
             case "admin" -> onAdminButtonClick(event);
             case "comment" -> onCommentButtonClick(event);
             default -> invalid_searchingText(event);
@@ -272,6 +272,19 @@ public class Function implements Initializable {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(Function.class.getResource("edit-view.fxml"));
+            Parent addParent = loader.load();
+            Scene addScene = new Scene(addParent);
+            stage.setScene(addScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Delete
+    public void onDeleteButtonClick(MouseEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(Function.class.getResource("delete-view.fxml"));
             Parent addParent = loader.load();
             Scene addScene = new Scene(addParent);
             stage.setScene(addScene);

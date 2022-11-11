@@ -61,7 +61,7 @@ public class Search {
         idSearch.clear();
         String option = showOptionComboBox.getValue();
         if (option == null) {
-            errorSearch("Please choose an option to show", event);
+            errorSearch("Empty Show Option", "Please choose an option to show", event);
         } else {
             table.getItems().clear();
             BufferedReader reader = new BufferedReader(new FileReader(ConstVariables.EMPLOYEE_DATA_PATH));
@@ -94,7 +94,7 @@ public class Search {
     // Search employee by ID
     public void onSearchIDButtonClick(MouseEvent event) throws IOException {
         if (idSearch.getText().equals("")) {
-            errorSearch("Please choose an ID to search", event);
+            errorSearch("Empty Search Option", "Please choose an ID to search", event);
         } else {
             table.getItems().clear();
             BufferedReader reader = new BufferedReader(new FileReader(ConstVariables.EMPLOYEE_DATA_PATH));
@@ -121,10 +121,10 @@ public class Search {
     }
 
     // Alert
-    private void errorSearch(String error_text, MouseEvent event) {
-        Alert error_add = new Alert(Alert.AlertType.ERROR, "Empty Show Option", ButtonType.OK);
+    private void errorSearch(String error_title, String error_text, MouseEvent event) {
+        Alert error_add = new Alert(Alert.AlertType.ERROR, error_title, ButtonType.OK);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        error_add.setTitle("Empty Show Option");
+        error_add.setTitle(error_title);
         error_add.setContentText(error_text + "!");
         Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png");
         ImageView imageView = new ImageView(image);
