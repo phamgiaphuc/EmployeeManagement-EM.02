@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -49,8 +48,6 @@ public class Control implements Initializable {
     private TextField pass_0;
     @FXML
     private CheckBox revealPass_signIn;
-    @FXML
-    private Button signIn;
     // Sign-up stage
     @FXML
     private Pane signUp_pane;
@@ -376,7 +373,7 @@ public class Control implements Initializable {
     // 8. More Information & Profile
     public void onMoreInfoClick() {
         try {
-            URL url = new URL("https://github.com/phamgiaphuc/EmployeeManagement/tree/main#readme");
+            URL url = new URL("https://github.com/phamgiaphuc/EmployeeManagement-EM.02");
             Desktop.getDesktop().browse(url.toURI());
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();

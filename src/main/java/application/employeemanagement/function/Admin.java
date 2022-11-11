@@ -116,10 +116,10 @@ public class Admin implements Initializable {
                     }
                 }
             } else {
-                errorAdmin("Please re-enter the new password again", event);
+                errorAdmin("Invalid password", "Please re-enter the new password again", event);
             }
         } else {
-            errorAdmin("The old password does not match with this account password", event);
+            errorAdmin("Invalid password", "The old password does not match with this account password", event);
         }
     }
 
@@ -139,8 +139,9 @@ public class Admin implements Initializable {
         }
         writer.close();
         reader.close();
-        temp.renameTo(file);
-        System.out.println("Change account " + account + " successfully!");
+        if(temp.renameTo(file)) {
+            System.out.println("Change account " + account + " successfully!");
+        }
     }
 
     public void onAvatarButtonClick(MouseEvent event) {
@@ -152,10 +153,10 @@ public class Admin implements Initializable {
     }
 
     // Alert
-    private void errorAdmin(String error_text, MouseEvent event) {
-        Alert error_admin = new Alert(Alert.AlertType.ERROR, "Invalid password", ButtonType.OK);
+    private void errorAdmin(String error_title, String error_text, MouseEvent event) {
+        Alert error_admin = new Alert(Alert.AlertType.ERROR, error_title, ButtonType.OK);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        error_admin.setTitle("Invalid password");
+        error_admin.setTitle(error_title);
         error_admin.setContentText(error_text + "!");
         Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/e/ec/Error-icon.png");
         ImageView imageView = new ImageView(image);

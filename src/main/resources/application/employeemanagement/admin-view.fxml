@@ -43,20 +43,29 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
-            <PasswordField fx:id="original_password" layoutX="214.0" layoutY="12.0" prefWidth="250.0" promptText="Enter the old password" />
-            <PasswordField fx:id="new_password_1" layoutX="214.0" layoutY="50.0" prefWidth="250.0" promptText="Enter the new password" />
-            <PasswordField fx:id="new_password_2" layoutX="214.0" layoutY="88.0" prefWidth="250.0" promptText="Re-enter the new password" />
+            <PasswordField fx:id="original_password" layoutX="214.0" layoutY="12.0" prefWidth="250.0" promptText="Enter the old password">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></PasswordField>
+            <PasswordField fx:id="new_password_1" layoutX="214.0" layoutY="50.0" prefWidth="250.0" promptText="Enter the new password">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></PasswordField>
+            <PasswordField fx:id="new_password_2" layoutX="214.0" layoutY="88.0" prefWidth="250.0" promptText="Re-enter the new password">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></PasswordField>
             <ImageView fx:id="avatar" fitHeight="65.0" fitWidth="65.0" layoutX="526.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@photo/welcome-view/user.png" />
                </image>
             </ImageView>
-            <Button onMouseClicked="#onAvatarButtonClick" layoutX="519.0" layoutY="110.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" styleClass="black-button" text="Avatar">
+            <Button layoutX="519.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#onAvatarButtonClick" prefHeight="31.0" prefWidth="80.0" styleClass="black-button" text="Avatar">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
-            <Button onMouseClicked="#onConfirmButtonClick" layoutX="293.0" layoutY="172.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" styleClass="black-button" text="Confirm">
+            <Button layoutX="293.0" layoutY="172.0" mnemonicParsing="false" onMouseClicked="#onConfirmButtonClick" prefHeight="31.0" prefWidth="100.0" styleClass="black-button" text="Confirm">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
@@ -66,7 +75,10 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="nickname" layoutX="214.0" layoutY="127.0" prefWidth="250.0" promptText="Enter the nickname" />
+            <TextField fx:id="nickname" layoutX="214.0" layoutY="127.0" prefWidth="250.0" promptText="Enter the nickname">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></TextField>
          </children></Pane>
     </children>
 </AnchorPane>

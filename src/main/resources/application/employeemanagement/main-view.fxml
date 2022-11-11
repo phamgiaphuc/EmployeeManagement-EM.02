@@ -113,7 +113,7 @@
                         </Label>
                     </children>
                 </HBox>
-                <HBox prefHeight="40.0" prefWidth="196.0" styleClass="function-press" stylesheets="@css/admin.css">
+                <HBox onMouseClicked="#onDeleteButtonClick" prefHeight="40.0" prefWidth="196.0" styleClass="function-press" stylesheets="@css/admin.css">
                     <children>
                         <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="149.0" text="Delete" textFill="WHITE">
                             <font>

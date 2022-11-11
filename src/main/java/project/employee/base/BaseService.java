@@ -8,8 +8,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BaseService {
     /**
@@ -71,6 +72,7 @@ public class BaseService {
         return check;
     }
 
+    // Suggesting ID
     public int suggestId() throws IOException {
         int num = 0;
         File file = new File(ConstVariables.EMPLOYEE_DATA_PATH);
@@ -78,21 +80,20 @@ public class BaseService {
         if (file.length() == 0) {
             num = 1;
         } else {
-            ArrayList<Integer> ar = new ArrayList<>();
+            Set<Integer> set = new HashSet<>();
             BufferedReader reader = new BufferedReader(new FileReader(ConstVariables.EMPLOYEE_DATA_PATH));
             while ((currentLine = reader.readLine()) != null) {
                 String[] array = currentLine.split("@");
-                ar.add(Integer.parseInt(array[0]));
+                set.add(Integer.parseInt(array[0]));
             }
             reader.close();
-            int length = Collections.max(ar);
-            if (length == ar.size()) {
+            // Return the biggest number in the set
+            int length = Collections.max(set);
+            if (length == set.size()) {
                 num = length + 1;
             } else {
                 for (int i = 1; i <= length; i++) {
-                    if (ar.contains(i)) {
-                        continue;
-                    } else {
+                    if (!set.contains(i)) {
                         num = i;
                         return num;
                     }
@@ -120,7 +121,31 @@ public class BaseService {
         }
         writer.close();
         reader.close();
-        temp.renameTo(file);
-        System.out.println("Change successful!");
+        if (temp.renameTo(file)) {
+            System.out.println("Change successful!");
+        }
     }
+
+    // Delete employee information
+    public void delete(String id) throws IOException {
+        File inputF = new File(ConstVariables.EMPLOYEE_DATA_PATH);
+        File tempF = new File("temp.txt");
+        BufferedReader reader = new BufferedReader(new FileReader(inputF));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempF));
+        String currentLine;
+        while ((currentLine = reader.readLine()) != null) {
+            String trimmedLine = currentLine.trim();
+            String[] array = trimmedLine.split("@");
+            if (array[0].equals(id)) {
+                continue;
+            }
+            writer.write(currentLine + System.getProperty("line.separator"));
+        }
+        writer.close();
+        reader.close();
+        if (tempF.renameTo(inputF)) {
+            System.out.println("Delete successful!" + "\n");
+        }
+    }
+
 }
