@@ -87,6 +87,7 @@ Click the file path below:
     |__ application.employeemanagement
         |__ avatar
         |__ css
+        |__ photo
 ```
 
 -----------------------------------
