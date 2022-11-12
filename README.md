@@ -25,7 +25,7 @@
 - JFX version 18.0.2 or later.
 - Maven version 4.0.0 or later.
 
-> I recommend JDK and JFX version must be match in order to have full experience to run the program successfully.
+> **Advice:** I recommend JDK and JFX version must be match in order to have full experience to run the program successfully.
 
 ### STEP 2: Program is configured as follows:
 
@@ -42,6 +42,8 @@ and exit:**
   the password.
 - Information: To know more about the project.
 - Exit: Exit the program.
+
+> **Notice:** I have already created an account. You can check the account by clicking [here](src/main/java/project/account/data/admin-accounts-data.txt). Or you can sign up your own account.
 
 **2.2 After signing in successfully, there is an admin stage which contains _six functions_: add, search, edit, delete,
 note, admin:**
