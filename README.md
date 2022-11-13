@@ -115,6 +115,8 @@ Click the file path below:
 
 </ins>
 
+> **Advice:** Please follow the steps below otherwise the program can not run.
+
 #### Step 1:
 
 - Go to 'Preferences' then go to 'Plugins' and type 'lombok' to search. It will look like this.
