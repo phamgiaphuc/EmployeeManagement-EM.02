@@ -223,12 +223,17 @@ public class Function implements Initializable {
     /**
      * Functions:
      */
-    // Signing out
+    // Sign out
     public void onSignOutClick(MouseEvent event) throws IOException {
         Alert signOutConfirmation = new Alert(Alert.AlertType.CONFIRMATION, "Sign-out confirmation", ButtonType.CANCEL, ButtonType.OK);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         signOutConfirmation.setTitle("Signing-out confirmation");
         signOutConfirmation.setContentText("Do you want to sign-out?");
+        Image image = new Image(Paths.get(ConstVariables.SIGNOUT_ICON_PATH).toUri().toString());
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(40);
+        imageView.setFitHeight(40);
+        signOutConfirmation.setGraphic(imageView);
         signOutConfirmation.initModality(Modality.APPLICATION_MODAL);
         signOutConfirmation.initOwner(stage);
         signOutConfirmation.showAndWait();
