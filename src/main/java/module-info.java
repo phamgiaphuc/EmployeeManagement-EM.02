@@ -7,6 +7,8 @@ module application.employeemanagement {
     requires com.almasb.fxgl.all;
     requires javafx.media;
     requires java.desktop;
+    requires lombok;
+    requires org.slf4j;
 
     opens application.employeemanagement to javafx.fxml;
     opens application.employeemanagement.function to javafx.fxml;

@@ -1,5 +1,6 @@
 package project.account;
 
+import lombok.extern.slf4j.Slf4j;
 import utilities.ConstVariables;
 
 import java.io.BufferedReader;
@@ -9,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Set;
 
+@Slf4j
 public class SignUp {
     // Variables
     private final String user_account;
@@ -68,11 +70,13 @@ public class SignUp {
                 reader.close();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.info(e.getMessage());
+            log.info("<SignUp - checkSimilarAccountName>: File of admin accounts is not found.");
         }
         return check;
     }
 
+    // Check if the password consists one integer
     public int checkPassword() {
         char[] chars = user_password.toCharArray();
         for (char temp : chars) {
@@ -93,20 +97,24 @@ public class SignUp {
         }
     }
 
-    public boolean privacyCode_list(String file, int num) throws IOException {
-        if (set == null) {
-            return false;
-        } else {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String currentLine;
-            while ((currentLine = reader.readLine()) != null) {
-                String[] array = currentLine.split(",");
-                String temp = array[2].substring(1, array[2].length() - 1);
-                set.add(Integer.parseInt(temp));
+    public boolean privacyCode_list(String file, int num) {
+        if (set != null) {
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String currentLine;
+                while ((currentLine = reader.readLine()) != null) {
+                    String[] array = currentLine.split(",");
+                    String temp = array[2].substring(1, array[2].length() - 1);
+                    set.add(Integer.parseInt(temp));
+                }
+                reader.close();
+                return set.contains(num);
+            } catch (IOException e) {
+                log.info(e.getMessage());
+                log.info("<SignUp - privacyCode_list>: File of admin accounts is not found.");
             }
-            reader.close();
-            return set.contains(num);
         }
+        return false;
     }
 
     // Generate the privacy character;
@@ -114,6 +122,7 @@ public class SignUp {
         return special_chars[(int) (Math.random() * special_chars.length)];
     }
 
+    // Generate the privacy alphabets
     public String getPrivacyAlphabets() {
         return alphabets[(int) (Math.random() * alphabets.length)];
     }
@@ -136,11 +145,13 @@ public class SignUp {
         return privacyCode;
     }
 
+    // Check if the file exists
     private boolean checkFileExist() {
         File file = new File(ConstVariables.LIST_ACCOUNTS_PATH);
         return file.exists();
     }
 
+    // Return account information
     public String toString() {
         return user_account + "," + user_password + "," + privacyCode + "," + avatar + "," + user_nickname;
     }
